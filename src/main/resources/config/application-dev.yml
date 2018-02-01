@@ -32,9 +32,9 @@ spring:
         serialization.indent_output: true
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:h2:file:./target/h2db/db/lms;DB_CLOSE_DELAY=-1
-        username: LMS
-        password:
+        url: jdbc:mysql://localhost:3306/lms
+        username: root
+        password: root
     h2:
         console:
             enabled: false
@@ -79,7 +79,7 @@ liquibase:
 #        key-alias: LMS
 # ===================================================================
 server:
-    port: 8080
+    port: 8085
 
 # ===================================================================
 # JHipster specific properties

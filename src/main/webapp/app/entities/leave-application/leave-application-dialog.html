@@ -1,0 +1,97 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myLeaveApplicationLabel" data-translate="leaveManagementSystemApp.leaveApplication.home.createOrEditLabel">Create or edit a Leave Application</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.leaveApplication.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.leaveApplication.id" readonly />
+        </div>
+        <div class="form-group">
+            <label data-translate="leaveManagementSystemApp.leaveApplication.leaveType" for="field_leaveType">Leave Type</label>
+            <select class="form-control" id="field_leaveType" name="leaveType" ng-model="vm.leaveApplication.leaveType" ng-options="leaveType as leaveType.code for leaveType in vm.leavetypes track by leaveType.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="leaveManagementSystemApp.leaveApplication.reason" for="field_reason">Reason</label>
+            <input type="text" class="form-control" name="reason" id="field_reason"
+                    ng-model="vm.leaveApplication.reason"
+                    required/>
+            <div ng-show="editForm.reason.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.reason.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+       
+        <div class="form-group">
+            <label class="control-label" data-translate="leaveManagementSystemApp.leaveApplication.status" for="field_status">Status</label>
+            <select class="form-control" name="status" ng-model="vm.leaveApplication.status" id="field_status" required>
+                <option value="APPROVED" data-translate="leaveManagementSystemApp.Status.APPROVED">APPROVED</option>
+                <option value="REJECTED" data-translate="leaveManagementSystemApp.Status.REJECTED">REJECTED</option>
+            </select>
+            <div ng-show="editForm.status.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.status.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="leaveManagementSystemApp.leaveApplication.dateFrom" for="field_dateFrom">Date From</label>
+                <div class="input-group">
+                    <input id="field_dateFrom" ng-change="vm.calculateDays()" type="text" class="form-control" name="dateFrom" uib-datepicker-popup="{{dateformat}}" ng-model="vm.leaveApplication.dateFrom" is-open="vm.datePickerOpenStatus.dateFrom"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('dateFrom')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.dateFrom.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.dateFrom.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="leaveManagementSystemApp.leaveApplication.endDate" for="field_endDate">End Date</label>
+                <div class="input-group">
+                    <input id="field_endDate" minDate="vm.leaveApplication.dateFrom" ng-change="vm.calculateDays()" type="text" class="form-control" name="endDate" uib-datepicker-popup="{{dateformat}}" ng-model="vm.leaveApplication.endDate" is-open="vm.datePickerOpenStatus.endDate"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('endDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.endDate.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.endDate.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        
+         <div class="form-group">
+            <label class="control-label"  for="field_days">Total Days</label>
+            <input disabled type="text" class="form-control"  id="field_days"
+                    ng-model="vm.days"
+                    required/>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

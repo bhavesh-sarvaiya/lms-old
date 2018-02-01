@@ -1,0 +1,9 @@
+{
+    "leaveManagementSystemApp": {
+        "Status" : {
+            "null": "",
+            "APPROVED": "APPROVED",
+            "REJECTED": "REJECTED"
+        }
+    }
+}

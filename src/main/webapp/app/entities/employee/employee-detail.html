@@ -1,0 +1,111 @@
+
+<div>
+    <h2><span data-translate="leaveManagementSystemApp.employee.detail.title">Employee</span> {{vm.employee.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="leaveManagementSystemApp.employee.empEnrollMentNo">Emp Enroll Ment No</span></dt>
+        <dd>
+            <span>{{vm.employee.empEnrollMentNo}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.employee.teachingstaff">Teachingstaff</span></dt>
+        <dd>
+            <span>{{vm.employee.teachingstaff}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.employee.canHaveVacation">Can Have Vacation</span></dt>
+        <dd>
+            <span>{{vm.employee.canHaveVacation}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.employee.post">Post</span></dt>
+        <dd>
+            <span data-translate="{{'leaveManagementSystemApp.Post.' + vm.employee.post}}">{{vm.employee.post}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.employee.fatherHusbandName">Father Husband Name</span></dt>
+        <dd>
+            <span>{{vm.employee.fatherHusbandName}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.employee.gender">Gender</span></dt>
+        <dd>
+            <span data-translate="{{'leaveManagementSystemApp.GenderEnum.' + vm.employee.gender}}">{{vm.employee.gender}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.employee.dob">Dob</span></dt>
+        <dd>
+            <span>{{vm.employee.dob | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.employee.address">Address</span></dt>
+        <dd>
+            <span>{{vm.employee.address}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.employee.state">State</span></dt>
+        <dd>
+            <span>{{vm.employee.state}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.employee.city">City</span></dt>
+        <dd>
+            <span>{{vm.employee.city}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.employee.pincode">Pincode</span></dt>
+        <dd>
+            <span>{{vm.employee.pincode}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.employee.maritalStatus">Marital Status</span></dt>
+        <dd>
+            <span data-translate="{{'leaveManagementSystemApp.MaritalStatus.' + vm.employee.maritalStatus}}">{{vm.employee.maritalStatus}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.employee.phoneNumber">Phone Number</span></dt>
+        <dd>
+            <span>{{vm.employee.phoneNumber}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.employee.mobileNumber">Mobile Number</span></dt>
+        <dd>
+            <span>{{vm.employee.mobileNumber}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.employee.bloodGroup">Blood Group</span></dt>
+        <dd>
+            <span data-translate="{{'leaveManagementSystemApp.BloodGroup.' + vm.employee.bloodGroup}}">{{vm.employee.bloodGroup}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.employee.physicalFit">Physical Fit</span></dt>
+        <dd>
+            <span>{{vm.employee.physicalFit}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.employee.joinDate">Join Date</span></dt>
+        <dd>
+            <span>{{vm.employee.joinDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.employee.retiredDate">Retired Date</span></dt>
+        <dd>
+            <span>{{vm.employee.retiredDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.employee.qualification">Qualification</span></dt>
+        <dd>
+            <span>{{vm.employee.qualification}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.employee.payband">Payband</span></dt>
+        <dd>
+            <span>{{vm.employee.payband}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.employee.granted">Granted</span></dt>
+        <dd>
+            <span>{{vm.employee.granted}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.employee.otheNote">Othe Note</span></dt>
+        <dd>
+            <span>{{vm.employee.otheNote}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.employee.department">Department</span></dt>
+        <dd>
+            <a ui-sref="department-detail({id:vm.employee.department.id})">{{vm.employee.department.name}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="employee-detail.edit({id:vm.employee.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

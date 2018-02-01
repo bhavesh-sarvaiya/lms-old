@@ -1,12 +1,19 @@
 {
     "global": {
-        "title": "LMS",
+        "title": "Gujarat Vidyapith Leave Management System",
         "browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
         "menu": {
             "home": "Home",
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entities",
+                "department": "Department",
+                "employee": "Employee",
+                "leaveType": "Leave Type",
+                "leaveBalance": "Leave Balance",
+                "leaveApplication": "Leave Application",
+                "leaveApplicationHistory": "Leave Application History",
+                "leaveAllocation": "Leave Allocation",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
@@ -20,6 +27,7 @@
             },
             "admin": {
                 "main": "Administration",
+                "allocation": "Leave Allocation",
                 "userManagement": "User management",
                 "tracker": "User tracker",
                 "metrics": "Metrics",
@@ -45,15 +53,8 @@
         },
         "messages": {
             "info": {
-                "authenticated": {
-                    "prefix": "If you want to ",
-                    "link": "sign in",
-                    "suffix": ", you can try the default accounts:<br/>- Administrator (login=\"admin\" and password=\"admin\") <br/>- User (login=\"user\" and password=\"user\")."
-                },
-                "register": {
-                    "noaccount": "You don't have an account yet?",
-                    "link": "Register a new account"
-                }
+                "authenticated": "If you want to <a class=\"alert-link\" href=\"\" ng-click=\"vm.login()\">sign in</a>, you can try the default accounts:<br/>- Administrator (login=\"admin\" and password=\"admin\") <br/>- User (login=\"user\" and password=\"user\").",
+                "register": "You don't have an account yet? <a class=\"alert-link\" href=\"\" ng-click=\"vm.register()\">Register a new account</a>"
             },
             "error": {
                 "dontmatch": "The password and its confirmation do not match!"
@@ -83,8 +84,7 @@
         },
         "ribbon": {
             "dev":"Development"
-        },
-        "item-count": "Showing {{first}} - {{second}} of {{total}} items."
+        }
     },
     "entity": {
         "action": {
@@ -115,8 +115,7 @@
             "maxbytes": "This field cannot be more than {{ max }} bytes.",
             "pattern": "This field should follow pattern for {{ pattern }}.",
             "number": "This field should be a number.",
-            "datetimelocal": "This field should be a date and time.",
-            "patternLogin": "This field can only contain letters, digits and e-mail addresses."
+            "datetimelocal": "This field should be a date and time."
         }
     },
     "error": {
@@ -129,5 +128,6 @@
         "emailexists": "Email is already in use!",
         "idexists": "A new {{ entityName }} cannot already have an ID"
     },
-    "footer": "This is your footer"
+  "footer": "This is your footer"
+    
 }

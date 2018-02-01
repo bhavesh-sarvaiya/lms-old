@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span data-translate="leaveManagementSystemApp.leaveAllocation.detail.title">Leave Allocation</span> {{vm.leaveAllocation.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="leaveManagementSystemApp.leaveAllocation.teaching">Teaching</span></dt>
+        <dd>
+            <span>{{vm.leaveAllocation.teaching}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.leaveAllocation.canHaveVacation">Can Have Vacation</span></dt>
+        <dd>
+            <span>{{vm.leaveAllocation.canHaveVacation}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.leaveAllocation.granted">Granted</span></dt>
+        <dd>
+            <span>{{vm.leaveAllocation.granted}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.leaveAllocation.noOfLeaves">No Of Leaves</span></dt>
+        <dd>
+            <span>{{vm.leaveAllocation.noOfLeaves}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.leaveAllocation.allocationDate">Allocation Date</span></dt>
+        <dd>
+            <span>{{vm.leaveAllocation.allocationDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.leaveAllocation.leaveType">Leave Type</span></dt>
+        <dd>
+            <a ui-sref="leave-type-detail({id:vm.leaveAllocation.leaveType.id})">{{vm.leaveAllocation.leaveType.code}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="leave-allocation-detail.edit({id:vm.leaveAllocation.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

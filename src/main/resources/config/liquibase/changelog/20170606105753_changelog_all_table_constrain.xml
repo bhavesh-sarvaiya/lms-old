@@ -1,0 +1,214 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Administrator (generated)" id="1496726895698-1">
+        <createTable tableName="department">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="departmentPK"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1496726895698-2">
+        <createTable tableName="employee">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="employeePK"/>
+            </column>
+            <column name="address" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="blood_group" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="can_have_vacation" type="BIT"/>
+            <column name="city" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dob" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="emp_enroll_ment_no" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="father_husband_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="gender" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="granted" type="BIT"/>
+            <column name="join_date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="marital_status" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mobile_number" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="othe_note" type="VARCHAR(255)"/>
+            <column name="payband" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone_number" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="physical_fit" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pincode" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="post" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="qualification" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="retired_date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="state" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="teachingstaff" type="BIT"/>
+            <column name="department_id" type="BIGINT"/>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1496726895698-3">
+        <createTable tableName="leave_allocation">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="leave_allocationPK"/>
+            </column>
+            <column name="allocation_date" type="date"/>
+            <column name="can_have_vacation" type="BIT"/>
+            <column name="granted" type="BIT"/>
+            <column name="no_of_leaves" type="DOUBLE"/>
+            <column name="teaching" type="BIT"/>
+            <column name="leave_type_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1496726895698-4">
+        <createTable tableName="leave_application">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="leave_applicationPK"/>
+            </column>
+            <column name="date_from" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="end_date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="reason" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="employee_applied_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="employee_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="leave_type_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1496726895698-5">
+        <createTable tableName="leave_application_history">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="leave_application_historyPK"/>
+            </column>
+            <column name="action_date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="jhi_comment" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1496726895698-6">
+        <createTable tableName="leave_application_leave_application_histories">
+            <column name="leave_application_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="leave_application_histories_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1496726895698-7">
+        <createTable tableName="leave_balance">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="leave_balancePK"/>
+            </column>
+            <column name="no_of_leave" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="employee_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="leave_type_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1496726895698-8">
+        <createTable tableName="leave_type">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="leave_typePK"/>
+            </column>
+            <column name="code" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1496726895698-9">
+        <addUniqueConstraint columnNames="user_id" constraintName="UK_mpps3d3r9pdvyjx3iqixi96fi" tableName="employee"/>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1496726895698-10">
+        <addUniqueConstraint columnNames="leave_application_histories_id" constraintName="UK_mwkeed2ani4ou3ajb1o624u65" tableName="leave_application_leave_application_histories"/>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1496726895698-11">
+        <addForeignKeyConstraint baseColumnNames="employee_applied_id" baseTableName="leave_application" constraintName="FK478qtky6708f5vr93wok0v2v9" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="employee"/>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1496726895698-12">
+        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="leave_application" constraintName="FK5wn6nda4428nqlooiul7swpeq" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="employee"/>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1496726895698-13">
+        <addForeignKeyConstraint baseColumnNames="leave_application_histories_id" baseTableName="leave_application_leave_application_histories" constraintName="FK7snid38uk6ru8xlbp15wlekmm" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="leave_application_history"/>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1496726895698-14">
+        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="leave_balance" constraintName="FK9ueylmeksoyp2jvtdiovselp7" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="employee"/>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1496726895698-15">
+        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="employee" constraintName="FKbejtwvg9bxus2mffsm3swj3u9" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="department"/>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1496726895698-16">
+        <addForeignKeyConstraint baseColumnNames="leave_type_id" baseTableName="leave_application" constraintName="FKfrg7tqa7y2e4vcxuaqg18jxoa" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="leave_type"/>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1496726895698-17">
+        <addForeignKeyConstraint baseColumnNames="leave_application_id" baseTableName="leave_application_leave_application_histories" constraintName="FKgsqk5dnw4iyx8d3a3x6sem5pq" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="leave_application"/>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1496726895698-18">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="employee" constraintName="FKiv756awjw8mae3rmfo03d9wb3" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1496726895698-19">
+        <addForeignKeyConstraint baseColumnNames="leave_type_id" baseTableName="leave_allocation" constraintName="FKodx30xvl9bytlu7yw7381vhpe" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="leave_type"/>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1496726895698-20">
+        <addForeignKeyConstraint baseColumnNames="leave_type_id" baseTableName="leave_balance" constraintName="FKr7fmdsbyl1l02pt10gdvgkkrq" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="leave_type"/>
+    </changeSet>
+</databaseChangeLog>

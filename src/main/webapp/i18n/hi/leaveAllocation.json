@@ -1,0 +1,26 @@
+{
+    "leaveManagementSystemApp": {
+        "leaveAllocation" : {
+            "home": {
+                "title": "LeaveAllocations",
+                "createLabel": "नया Leave Allocation बनाएँ",
+                "createOrEditLabel": "Leave Allocation बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Leave Allocation [identifier: {{ param }}] तैयार है",
+            "updated": "एक Leave Allocation [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Leave Allocation [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Leave Allocation [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Leave Allocation"
+            },
+            "teaching": "Teaching",
+            "canHaveVacation": "Can Have Vacation",
+            "granted": "Granted",
+            "noOfLeaves": "No Of Leaves",
+            "allocationDate": "Allocation Date",
+            "leaveType": "Leave Type"
+        }
+    }
+}

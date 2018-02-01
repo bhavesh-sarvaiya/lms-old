@@ -1,28 +1,28 @@
 {
   "generator-jhipster": {
     "promptValues": {
-      "packageName": "com.lms",
+      "packageName": "com.leave",
       "nativeLanguage": "en"
     },
-    "jhipsterVersion": "4.14.0",
-    "baseName": "LMS",
-    "packageName": "com.lms",
-    "packageFolder": "com/lms",
+    "jhipsterVersion": "4.5.1",
+    "baseName": "LeaveManagementSystem",
+    "packageName": "com.leave",
+    "packageFolder": "com/leave",
     "serverPort": "8080",
-    "authenticationType": "oauth2",
-    "cacheProvider": "ehcache",
-    "enableHibernateCache": true,
+    "authenticationType": "jwt",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": false,
     "websocket": false,
     "databaseType": "sql",
-    "devDatabaseType": "h2Disk",
+    "devDatabaseType": "mysql",
     "prodDatabaseType": "mysql",
     "searchEngine": false,
     "messageBroker": false,
-    "serviceDiscoveryType": false,
-    "buildTool": "maven",
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "gradle",
     "enableSocialSignIn": false,
-    "enableSwaggerCodegen": false,
-    "clientFramework": "angularX",
+    "jwtSecretKey": "cf3cedeaee00bfff8e5fb88c1d4c30a4b94ed011",
+    "clientFramework": "angular1",
     "useSass": false,
     "clientPackageManager": "yarn",
     "applicationType": "monolith",
@@ -31,11 +31,15 @@
     "otherModules": [
       {
         "name": "generator-jhipster-nav-element",
-        "version": "1.4.16"
+        "version": "1.2.2"
       },
       {
         "name": "generator-jhipster-entity-audit",
-        "version": "3.1.0"
+        "version": "2.4.0"
+      },
+      {
+        "name": "generator-jhipster-angular-ui",
+        "version": "0.0.2"
       }
     ],
     "enableTranslation": true,

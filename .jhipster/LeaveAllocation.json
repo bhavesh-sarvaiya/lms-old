@@ -1,0 +1,38 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "leaveType",
+            "otherEntityName": "leaveType",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "code"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "teaching",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "canHaveVacation",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "granted",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "noOfLeaves",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "allocationDate",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20170603183609",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "leave_allocation",
+    "pagination": "pagination"
+}

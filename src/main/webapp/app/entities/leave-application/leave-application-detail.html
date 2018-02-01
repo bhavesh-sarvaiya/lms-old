@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span data-translate="leaveManagementSystemApp.leaveApplication.detail.title">Leave Application</span> {{vm.leaveApplication.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="leaveManagementSystemApp.leaveApplication.reason">Reason</span></dt>
+        <dd>
+            <span>{{vm.leaveApplication.reason}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.leaveApplication.status">Status</span></dt>
+        <dd>
+            <span data-translate="{{'leaveManagementSystemApp.Status.' + vm.leaveApplication.status}}">{{vm.leaveApplication.status}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.leaveApplication.dateFrom">Date From</span></dt>
+        <dd>
+            <span>{{vm.leaveApplication.dateFrom | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.leaveApplication.endDate">End Date</span></dt>
+        <dd>
+            <span>{{vm.leaveApplication.endDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="leaveManagementSystemApp.leaveApplication.leaveType">Leave Type</span></dt>
+        <dd>
+            <a ui-sref="leave-type-detail({id:vm.leaveApplication.leaveType.id})">{{vm.leaveApplication.leaveType.code}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="leave-application-detail.edit({id:vm.leaveApplication.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

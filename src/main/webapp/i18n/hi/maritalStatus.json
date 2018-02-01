@@ -1,0 +1,9 @@
+{
+    "leaveManagementSystemApp": {
+        "MaritalStatus" : {
+            "null": "",
+            "MARRIED": "MARRIED",
+            "UNMMARIED": "UNMMARIED"
+        }
+    }
+}

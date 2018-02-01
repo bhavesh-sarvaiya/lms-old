@@ -1,0 +1,71 @@
+<div>
+<jhi-alert></jhi-alert>
+     <!-- <h2 data-translate="leaveManagementSystemApp.leaveBalance.home.title">Leave Balances</h2>
+     
+     <div class="container-fluid">
+        <div class="row" has-authority="ROLE_ADMIN">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="leave-balance.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="leaveManagementSystemApp.leaveBalance.home.createLabel">
+                        Create new Leave Balance
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div> 
+    <br/> -->
+    <div class="table-responsive" >
+        <table class="jh-table table table-striped" >
+            <thead>
+                <tr ng-switch="vm.isAuthenticated()">
+               	    <th><span>Employeement No</span></th>
+               	    <th ng-class="{active: vm.$state.includes('admin')}"
+					ng-switch-when="true" has-authority="ROLE_ADMIN"><span>Employee Name</span></th>
+               	    <th><span>Department</span></th>
+               	    <th><span>Leave Type</span></th>
+                    <th><span data-translate="leaveManagementSystemApp.leaveBalance.noOfLeave">No Of Leave</span></th>
+                   
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-switch="vm.isAuthenticated()" ng-repeat="leaveBalance in vm.leaveBalances track by leaveBalance.id">
+                  <!--  <td><a ui-sref="leave-balance-detail({id:leaveBalance.id})">{{leaveBalance.id}}</a></td> -->
+                    <td>{{leaveBalance.employee.empEnrollMentNo}}</td>
+                     <td ng-class="{active: vm.$state.includes('admin')}"
+					ng-switch-when="true" has-authority="ROLE_ADMIN">{{leaveBalance.employee.user.firstName}}</td>
+                     <td>{{leaveBalance.employee.department.name}}</td>
+                     <td>{{leaveBalance.leaveType.code}}</td>
+                     <td>{{leaveBalance.noOfLeave}}</td>
+                    
+
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="leave-balance-detail({id:leaveBalance.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit" ng-class="{active: vm.$state.includes('admin')}"
+					ng-switch-when="true" has-authority="ROLE_ADMIN"
+                                    ui-sref="leave-balance.edit({id:leaveBalance.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit" ng-class="{active: vm.$state.includes('admin')}"
+					ng-switch-when="true" has-authority="ROLE_ADMIN"
+                                    ui-sref="leave-balance.delete({id:leaveBalance.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,86 @@
+
+entity Department{
+	name String required
+    description String
+}
+
+entity Employee {
+	empEnrollMentNo Integer required
+    teachingstaff Boolean
+    canHaveVacation Boolean 
+    post Post required
+    father\HusbandName String required
+    gender GenderEnum required
+  	dob LocalDate required
+    address String required
+    state String required
+    city String required
+    pincode String required
+    maritalStatus MaritalStatus required
+	phoneNumber String required
+    mobileNumber String required
+	bloodGroup BloodGroup required
+    physicalFit Boolean required
+    joinDate LocalDate required
+    retiredDate LocalDate required
+    qualification String required
+    payband Double required
+    granted Boolean
+    otheNote String 
+}
+
+entity LeaveType{
+  	name String required
+    code String required
+    description String
+    }
+    
+
+entity LeaveBalance{
+    noOfLeave Integer required
+}
+
+entity LeaveApplication{
+  	reason  String required
+    status Status required
+    dateFrom LocalDate required
+    endDate LocalDate required
+}
+
+entity LeaveApplicationHistory {
+    status Status required
+  	comment String required
+    actionDate LocalDate required
+}
+
+enum Status
+{
+	APPROVED, REJECTED
+}
+
+enum GenderEnum{
+	MALE, FEMALE
+}
+enum MaritalStatus{
+	MARRIED, UNMMARIED
+}
+enum BloodGroup{
+	APOSITIVE, OPOSITIVE, BPOSITIVE, ABPOSITIVE,
+    ANEGATIVE, ONEGATIVE, BNEGATIVE, ABNEGATIVE
+}
+
+enum Post
+{
+	LDC, UDP, SECTIONOFFICER, ASSISTANTREGISTER, DEPUTYREGISTER,
+    FACULTY, HOD, REGISTRAR, VICECHANCELLOR, CHANCELLOR 
+}
+
+relationship ManyToOne{
+    Employee{department(name)} to Department,
+    LeaveApplication{leaveType(code)} to LeaveType
+}
+
+
+
+
+

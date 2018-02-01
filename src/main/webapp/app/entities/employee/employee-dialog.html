@@ -1,0 +1,693 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()"
+	show-validation>
+
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal"
+			aria-hidden="true" ng-click="vm.clear()">&times;</button>
+		<h4 class="modal-title" id="myEmployeeLabel"
+			data-translate="leaveManagementSystemApp.employee.home.createOrEditLabel">Create
+			or edit a Employee</h4>
+	</div>
+	<div class="modal-body">
+		<jhi-alert-error></jhi-alert-error>
+		<div class="form-group" ng-show="vm.employee.id">
+			<label for="id" data-translate="global.field.id">ID</label> <input
+				type="text" class="form-control" id="id" name="id"
+				ng-model="vm.employee.id" readonly />
+		</div>
+
+		<div class="row">
+
+			<div class="col-md-4">
+
+				<div class="form-group">
+					<label class="control-label"
+						data-translate="leaveManagementSystemApp.employee.empEnrollMentNo"
+						for="field_empEnrollMentNo">Emp Enroll Ment No</label> <input
+						type="number" class="form-control" name="empEnrollMentNo"
+						id="field_empEnrollMentNo" ng-model="vm.employee.empEnrollMentNo"
+						required />
+					<div ng-show="editForm.empEnrollMentNo.$invalid">
+						<p class="help-block"
+							ng-show="editForm.empEnrollMentNo.$error.required"
+							data-translate="entity.validation.required"></p>
+						<p class="help-block"
+							ng-show="editForm.empEnrollMentNo.$error.number"
+							data-translate="entity.validation.number"></p>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col-md-4">
+
+				<div class="form-group">
+					<label class="control-label" for="field_firstName">First
+						Name</label> <input type="text" class="form-control" name="firstName"
+						id="field_firstName" ng-model="vm.employee.user.firstName"
+						required />
+					<div ng-show="editForm.firstName.$invalid">
+						<p class="help-block" ng-show="editForm.firstName.$error.required"
+							data-translate="entity.validation.required"></p>
+					</div>
+				</div>
+
+			</div>
+
+
+			<div class="col-md-4">
+
+
+
+				<div class="form-group">
+					<label class="control-label" for="field_lastName">Last Name</label>
+					<input type="text" class="form-control" name="lastName"
+						id="field_lastName" ng-model="vm.employee.user.lastName" required />
+					<div ng-show="editForm.lastName.$invalid">
+						<p class="help-block" ng-show="editForm.lastName.$error.required"
+							data-translate="entity.validation.required">This field is
+							required.</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="col-md-4">
+
+				<div class="form-group">
+					<label
+						data-translate="leaveManagementSystemApp.employee.department"
+						for="field_department">Department</label> <select
+						class="form-control" id="field_department" name="department"
+						ng-model="vm.employee.department"
+						ng-options="department as department.name for department in vm.departments track by department.id">
+						<option value=""></option>
+					</select>
+				</div>
+
+			</div>
+
+
+			<div class="col-md-8">
+				<div class="row">
+
+					<div class="col-md-4">
+
+						<div class="form-group">
+							<label class="control-label"
+								data-translate="leaveManagementSystemApp.employee.teachingstaff"
+								for="field_teachingstaff">Teachingstaff</label>
+
+						</div>
+
+					</div>
+
+					<div class="col-md-4">
+
+						<div class="form-group">
+							<label class="control-label"
+								data-translate="leaveManagementSystemApp.employee.canHaveVacation"
+								for="field_canHaveVacation">Can Have Vacation</label>
+						</div>
+
+					</div>
+
+					<div class="col-md-3 col-md-offset-1">
+						<div class="form-group">
+							<label class="control-label"
+								data-translate="leaveManagementSystemApp.employee.granted"
+								for="field_granted">Granted</label>
+						</div>
+					</div>
+
+				</div>
+
+
+
+				<div class="row">
+
+					<div class="col-md-4 col-md-offset-1">
+
+						<div class="form-group">
+							<input type="checkbox" name="teachingstaff"
+								id="field_teachingstaff" ng-model="vm.employee.teachingstaff" />
+						</div>
+
+					</div>
+
+					<div class="col-md-4">
+
+						<div class="form-group">
+							<input type="checkbox" name="canHaveVacation"
+								id="field_canHaveVacation"
+								ng-model="vm.employee.canHaveVacation" />
+						</div>
+
+					</div>
+
+					<div class="col-md-3">
+
+						<div class="form-group">
+							<input type="checkbox" name="granted" id="field_granted"
+								ng-model="vm.employee.granted" />
+						</div>
+
+					</div>
+
+				</div>
+
+
+			</div>
+
+
+		</div>
+
+
+
+		<div class="row">
+			<div class="col-md-4">
+
+				<div class="form-group">
+					<label class="control-label"
+						data-translate="leaveManagementSystemApp.employee.post"
+						for="field_post">Post</label> <select class="form-control"
+						name="post" ng-model="vm.employee.post" id="field_post" required>
+						<option value="LDC"
+							data-translate="leaveManagementSystemApp.Post.LDC">LDC</option>
+						<option value="UDP"
+							data-translate="leaveManagementSystemApp.Post.UDP">UDP</option>
+						<option value="SECTIONOFFICER"
+							data-translate="leaveManagementSystemApp.Post.SECTIONOFFICER">SECTIONOFFICER</option>
+						<option value="ASSISTANTREGISTER"
+							data-translate="leaveManagementSystemApp.Post.ASSISTANTREGISTER">ASSISTANTREGISTER</option>
+						<option value="DEPUTYREGISTER"
+							data-translate="leaveManagementSystemApp.Post.DEPUTYREGISTER">DEPUTYREGISTER</option>
+						<option value="FACULTY"
+							data-translate="leaveManagementSystemApp.Post.FACULTY">FACULTY</option>
+						<option value="HOD"
+							data-translate="leaveManagementSystemApp.Post.HOD">HOD</option>
+						<option value="REGISTRAR"
+							data-translate="leaveManagementSystemApp.Post.REGISTRAR">REGISTRAR</option>
+						<option value="VICECHANCELLOR"
+							data-translate="leaveManagementSystemApp.Post.VICECHANCELLOR">VICECHANCELLOR</option>
+						<option value="CHANCELLOR"
+							data-translate="leaveManagementSystemApp.Post.CHANCELLOR">CHANCELLOR</option>
+					</select>
+					<div ng-show="editForm.post.$invalid">
+						<p class="help-block" ng-show="editForm.post.$error.required"
+							data-translate="entity.validation.required">This field is
+							required.</p>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col-md-4">
+
+				<div class="form-group">
+					<label class="control-label" for="field_email">Email</label> <input
+						type="text" class="form-control" name="email" id="field_email"
+						ng-model="vm.employee.user.email" required />
+					<div ng-show="editForm.email.$invalid">
+						<p class="help-block" ng-show="editForm.email.$error.required"
+							data-translate="entity.validation.required">This field is
+							required.</p>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col-md-4">
+
+				<div class="form-group">
+					<label class="control-label"
+						data-translate="leaveManagementSystemApp.employee.fatherHusbandName"
+						for="field_fatherHusbandName">Father Husband Name</label> <input
+						type="text" class="form-control" name="fatherHusbandName"
+						id="field_fatherHusbandName"
+						ng-model="vm.employee.fatherHusbandName" required />
+					<div ng-show="editForm.fatherHusbandName.$invalid">
+						<p class="help-block"
+							ng-show="editForm.fatherHusbandName.$error.required"
+							data-translate="entity.validation.required">This field is
+							required.</p>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+
+
+
+		<div class="row">
+
+			<div class="col-md-4">
+
+				<div class="row">
+
+					<div class="col-md-12">
+
+						<div class="form-group">
+							<label class="control-label"
+								data-translate="leaveManagementSystemApp.employee.gender"
+								for="field_gender">Gender</label> <select class="form-control"
+								name="gender" ng-model="vm.employee.gender" id="field_gender"
+								required>
+								<option value="MALE"
+									data-translate="leaveManagementSystemApp.GenderEnum.MALE">MALE</option>
+								<option value="FEMALE"
+									data-translate="leaveManagementSystemApp.GenderEnum.FEMALE">FEMALE</option>
+							</select>
+							<div ng-show="editForm.gender.$invalid">
+								<p class="help-block" ng-show="editForm.gender.$error.required"
+									data-translate="entity.validation.required">This field is
+									required.</p>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+
+
+				<div class="row">
+
+					<div class="col-md-12">
+
+						<div class="form-group">
+							<label class="control-label"
+								data-translate="leaveManagementSystemApp.employee.dob"
+								for="field_dob">Dob</label>
+							<div class="input-group">
+								<input id="field_dob" type="text" class="form-control"
+									name="dob" uib-datepicker-popup="{{dateformat}}"
+									ng-model="vm.employee.dob"
+									is-open="vm.datePickerOpenStatus.dob" required /> <span
+									class="input-group-btn">
+									<button type="button" class="btn btn-default"
+										ng-click="vm.openCalendar('dob')">
+										<i class="glyphicon glyphicon-calendar"></i>
+									</button>
+								</span>
+							</div>
+							<div ng-show="editForm.dob.$invalid">
+								<p class="help-block" ng-show="editForm.dob.$error.required"
+									data-translate="entity.validation.required">This field is
+									required.</p>
+							</div>
+						</div>
+
+					</div>
+
+
+				</div>
+
+
+
+
+			</div>
+
+			<div class="col-md-8">
+
+
+				<div class="form-group">
+					<label class="control-label"
+						data-translate="leaveManagementSystemApp.employee.address"
+						for="field_address">Address</label>
+
+					<textarea class="form-control" rows="5" name="address"
+						id="field_address" ng-model="vm.employee.address" required></textarea>
+
+					<div ng-show="editForm.address.$invalid">
+						<p class="help-block" ng-show="editForm.address.$error.required"
+							data-translate="entity.validation.required">This field is
+							required.</p>
+					</div>
+				</div>
+
+			</div>
+
+
+		</div>
+
+
+		<div class="row">
+
+			<div class="col-md-3">
+
+				<div class="form-group">
+					<label class="control-label"
+						data-translate="leaveManagementSystemApp.employee.state"
+						for="field_state">State</label> <input type="text"
+						class="form-control" name="state" id="field_state"
+						ng-model="vm.employee.state" required />
+					<div ng-show="editForm.state.$invalid">
+						<p class="help-block" ng-show="editForm.state.$error.required"
+							data-translate="entity.validation.required">This field is
+							required.</p>
+					</div>
+				</div>
+
+
+			</div>
+
+			<div class="col-md-3">
+
+
+
+
+				<div class="form-group">
+					<label class="control-label"
+						data-translate="leaveManagementSystemApp.employee.city"
+						for="field_city">City</label> <input type="text"
+						class="form-control" name="city" id="field_city"
+						ng-model="vm.employee.city" required />
+					<div ng-show="editForm.city.$invalid">
+						<p class="help-block" ng-show="editForm.city.$error.required"
+							data-translate="entity.validation.required">This field is
+							required.</p>
+					</div>
+				</div>
+
+
+			</div>
+
+			<div class="col-md-3">
+
+
+				<div class="form-group">
+					<label class="control-label"
+						data-translate="leaveManagementSystemApp.employee.pincode"
+						for="field_pincode">Pincode</label> <input type="text"
+						class="form-control" name="pincode" id="field_pincode"
+						ng-model="vm.employee.pincode" required />
+					<div ng-show="editForm.pincode.$invalid">
+						<p class="help-block" ng-show="editForm.pincode.$error.required"
+							data-translate="entity.validation.required">This field is
+							required.</p>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col-md-3">
+
+
+
+
+				<div class="form-group">
+					<label class="control-label"
+						data-translate="leaveManagementSystemApp.employee.maritalStatus"
+						for="field_maritalStatus">Marital Status</label> <select
+						class="form-control" name="maritalStatus"
+						ng-model="vm.employee.maritalStatus" id="field_maritalStatus"
+						required>
+						<option value="MARRIED"
+							data-translate="leaveManagementSystemApp.MaritalStatus.MARRIED">MARRIED</option>
+						<option value="UNMMARIED"
+							data-translate="leaveManagementSystemApp.MaritalStatus.UNMMARIED">UNMMARIED</option>
+					</select>
+					<div ng-show="editForm.maritalStatus.$invalid">
+						<p class="help-block"
+							ng-show="editForm.maritalStatus.$error.required"
+							data-translate="entity.validation.required">This field is
+							required.</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+		<div class="row">
+
+
+			<div class="col-md-3">
+
+				<div class="form-group">
+					<label class="control-label"
+						data-translate="leaveManagementSystemApp.employee.phoneNumber"
+						for="field_phoneNumber">Phone Number</label> <input type="text"
+						class="form-control" name="phoneNumber" id="field_phoneNumber"
+						ng-model="vm.employee.phoneNumber" required />
+					<div ng-show="editForm.phoneNumber.$invalid">
+						<p class="help-block"
+							ng-show="editForm.phoneNumber.$error.required"
+							data-translate="entity.validation.required">This field is
+							required.</p>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col-md-3">
+
+
+				<div class="form-group">
+					<label class="control-label"
+						data-translate="leaveManagementSystemApp.employee.mobileNumber"
+						for="field_mobileNumber">Mobile Number</label> <input type="text"
+						class="form-control" name="mobileNumber" id="field_mobileNumber"
+						ng-model="vm.employee.mobileNumber" required />
+					<div ng-show="editForm.mobileNumber.$invalid">
+						<p class="help-block"
+							ng-show="editForm.mobileNumber.$error.required"
+							data-translate="entity.validation.required">This field is
+							required.</p>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col-md-3">
+
+				<div class="form-group">
+					<label class="control-label"
+						data-translate="leaveManagementSystemApp.employee.bloodGroup"
+						for="field_bloodGroup">Blood Group</label> <select
+						class="form-control" name="bloodGroup"
+						ng-model="vm.employee.bloodGroup" id="field_bloodGroup" required>
+						<option value="APOSITIVE"
+							data-translate="leaveManagementSystemApp.BloodGroup.APOSITIVE">APOSITIVE</option>
+						<option value="OPOSITIVE"
+							data-translate="leaveManagementSystemApp.BloodGroup.OPOSITIVE">OPOSITIVE</option>
+						<option value="BPOSITIVE"
+							data-translate="leaveManagementSystemApp.BloodGroup.BPOSITIVE">BPOSITIVE</option>
+						<option value="ABPOSITIVE"
+							data-translate="leaveManagementSystemApp.BloodGroup.ABPOSITIVE">ABPOSITIVE</option>
+						<option value="ANEGATIVE"
+							data-translate="leaveManagementSystemApp.BloodGroup.ANEGATIVE">ANEGATIVE</option>
+						<option value="ONEGATIVE"
+							data-translate="leaveManagementSystemApp.BloodGroup.ONEGATIVE">ONEGATIVE</option>
+						<option value="BNEGATIVE"
+							data-translate="leaveManagementSystemApp.BloodGroup.BNEGATIVE">BNEGATIVE</option>
+						<option value="ABNEGATIVE"
+							data-translate="leaveManagementSystemApp.BloodGroup.ABNEGATIVE">ABNEGATIVE</option>
+					</select>
+					<div ng-show="editForm.bloodGroup.$invalid">
+						<p class="help-block"
+							ng-show="editForm.bloodGroup.$error.required"
+							data-translate="entity.validation.required">This field is
+							required.</p>
+					</div>
+				</div>
+
+
+			</div>
+
+			<div class="col-md-3">
+
+
+
+				<div class="row">
+
+					<div class="col-md-12 col-md-offset-2">
+
+
+						<div class="form-group">
+							<label class="control-label"
+								data-translate="leaveManagementSystemApp.employee.physicalFit"
+								for="field_physicalFit">Physical Fit</label>
+							<div ng-show="editForm.physicalFit.$invalid">
+								<p class="help-block"
+									ng-show="editForm.physicalFit.$error.required"
+									data-translate="entity.validation.required">This field is
+									required.</p>
+							</div>
+						</div>
+
+
+
+					</div>
+
+				</div>
+
+
+				<div class="row">
+
+					<div class="col-md-12 col-md-offset-4">
+
+
+						<div class="form-group">
+							<input type="checkbox" name="physicalFit" id="field_physicalFit"
+								ng-model="vm.employee.physicalFit" />
+							<div ng-show="editForm.physicalFit.$invalid">
+								<p class="help-block"
+									ng-show="editForm.physicalFit.$error.required"
+									data-translate="entity.validation.required">This field is
+									required.</p>
+							</div>
+						</div>
+
+
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+
+
+
+
+		<div class="row">
+
+			<div class="col-md-3">
+
+
+				<div class="form-group">
+					<label class="control-label"
+						data-translate="leaveManagementSystemApp.employee.joinDate"
+						for="field_joinDate">Join Date</label>
+					<div class="input-group">
+						<input id="field_joinDate" type="text" class="form-control"
+							name="joinDate" uib-datepicker-popup="{{dateformat}}"
+							ng-model="vm.employee.joinDate"
+							is-open="vm.datePickerOpenStatus.joinDate" required /> <span
+							class="input-group-btn">
+							<button type="button" class="btn btn-default"
+								ng-click="vm.openCalendar('joinDate')">
+								<i class="glyphicon glyphicon-calendar"></i>
+							</button>
+						</span>
+					</div>
+					<div ng-show="editForm.joinDate.$invalid">
+						<p class="help-block" ng-show="editForm.joinDate.$error.required"
+							data-translate="entity.validation.required">This field is
+							required.</p>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col-md-3">
+
+				<div class="form-group">
+					<label class="control-label"
+						data-translate="leaveManagementSystemApp.employee.retiredDate"
+						for="field_retiredDate">Retired Date</label>
+					<div class="input-group">
+						<input id="field_retiredDate" type="text" class="form-control"
+							name="retiredDate" uib-datepicker-popup="{{dateformat}}"
+							ng-model="vm.employee.retiredDate"
+							is-open="vm.datePickerOpenStatus.retiredDate" required /> <span
+							class="input-group-btn">
+							<button type="button" class="btn btn-default"
+								ng-click="vm.openCalendar('retiredDate')">
+								<i class="glyphicon glyphicon-calendar"></i>
+							</button>
+						</span>
+					</div>
+					<div ng-show="editForm.retiredDate.$invalid">
+						<p class="help-block"
+							ng-show="editForm.retiredDate.$error.required"
+							data-translate="entity.validation.required">This field is
+							required.</p>
+					</div>
+				</div>
+
+
+			</div>
+
+			<div class="col-md-3">
+
+
+
+				<div class="form-group">
+					<label class="control-label"
+						data-translate="leaveManagementSystemApp.employee.qualification"
+						for="field_qualification">Qualification</label> <input type="text"
+						class="form-control" name="qualification" id="field_qualification"
+						ng-model="vm.employee.qualification" required />
+					<div ng-show="editForm.qualification.$invalid">
+						<p class="help-block"
+							ng-show="editForm.qualification.$error.required"
+							data-translate="entity.validation.required">This field is
+							required.</p>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col-md-3">
+
+
+				<div class="form-group">
+					<label class="control-label"
+						data-translate="leaveManagementSystemApp.employee.payband"
+						for="field_payband">Payband</label> <input type="number"
+						class="form-control" name="payband" id="field_payband"
+						ng-model="vm.employee.payband" required />
+					<div ng-show="editForm.payband.$invalid">
+						<p class="help-block" ng-show="editForm.payband.$error.required"
+							data-translate="entity.validation.required">This field is
+							required.</p>
+						<p class="help-block" ng-show="editForm.payband.$error.number"
+							data-translate="entity.validation.number">This field should
+							be a number.</p>
+					</div>
+				</div>
+
+			</div>
+
+
+		</div>
+
+
+
+
+
+
+
+		<div class="form-group">
+			<label class="control-label"
+				data-translate="leaveManagementSystemApp.employee.otheNote"
+				for="field_otheNote">Othe Note</label>
+
+			<textarea class="form-control" name="otheNote" id="field_otheNote"
+				ng-model="vm.employee.otheNote"></textarea>
+
+		</div>
+
+
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal"
+			ng-click="vm.clear()">
+			<span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span
+				data-translate="entity.action.cancel">Cancel</span>
+		</button>
+		<button type="submit" ng-disabled="editForm.$invalid || vm.isSaving"
+			class="btn btn-primary">
+			<span class="glyphicon glyphicon-save"></span>&nbsp;<span
+				data-translate="entity.action.save">Save</span>
+		</button>
+	</div>
+</form>

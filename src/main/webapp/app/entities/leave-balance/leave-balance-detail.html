@@ -1,0 +1,23 @@
+
+<div>
+    <h2><span data-translate="leaveManagementSystemApp.leaveBalance.detail.title">Leave Balance</span> {{vm.leaveBalance.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="leaveManagementSystemApp.leaveBalance.noOfLeave">No Of Leave</span></dt>
+        <dd>
+            <span>{{vm.leaveBalance.noOfLeave}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="leave-balance-detail.edit({id:vm.leaveBalance.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

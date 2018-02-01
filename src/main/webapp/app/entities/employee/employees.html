@@ -1,0 +1,111 @@
+<div>
+    <h2 data-translate="leaveManagementSystemApp.employee.home.title">Employees</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="employee.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="leaveManagementSystemApp.employee.home.createLabel">
+                        Create new Employee
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                   <!-- <th><span data-translate="global.field.id">ID</span></th>--> 
+                    <th><span data-translate="leaveManagementSystemApp.employee.empEnrollMentNo">Emp Enroll Ment No</span></th>
+                    <th><span data-translate="leaveManagementSystemApp.employee.teachingstaff">Teachingstaff</span></th>
+                    <th><span data-translate="leaveManagementSystemApp.employee.canHaveVacation">Can Have Vacation</span></th>
+                    <th><span >First Name</span></th>
+                    <th><span >Last Name</span></th>
+                     <th><span data-translate="leaveManagementSystemApp.employee.department">Department</span></th>
+                    <th><span >Email</span></th>
+                    
+                    <th><span data-translate="leaveManagementSystemApp.employee.post">Post</span></th>
+                    <th><span data-translate="leaveManagementSystemApp.employee.fatherHusbandName">Father Husband Name</span></th>
+                    <th><span data-translate="leaveManagementSystemApp.employee.gender">Gender</span></th>
+                    <th><span data-translate="leaveManagementSystemApp.employee.dob">Dob</span></th>
+                    <th><span data-translate="leaveManagementSystemApp.employee.address">Address</span></th>
+                    <th><span data-translate="leaveManagementSystemApp.employee.state">State</span></th>
+                    <th><span data-translate="leaveManagementSystemApp.employee.city">City</span></th>
+                    <th><span data-translate="leaveManagementSystemApp.employee.pincode">Pincode</span></th>
+                    <th><span data-translate="leaveManagementSystemApp.employee.maritalStatus">Marital Status</span></th>
+                    <th><span data-translate="leaveManagementSystemApp.employee.phoneNumber">Phone Number</span></th>
+                    <th><span data-translate="leaveManagementSystemApp.employee.mobileNumber">Mobile Number</span></th>
+                    <th><span data-translate="leaveManagementSystemApp.employee.bloodGroup">Blood Group</span></th>
+                    <th><span data-translate="leaveManagementSystemApp.employee.physicalFit">Physical Fit</span></th>
+                    <th><span data-translate="leaveManagementSystemApp.employee.joinDate">Join Date</span></th>
+                    <th><span data-translate="leaveManagementSystemApp.employee.retiredDate">Retired Date</span></th>
+                    <th><span data-translate="leaveManagementSystemApp.employee.qualification">Qualification</span></th>
+                    <th><span data-translate="leaveManagementSystemApp.employee.payband">Payband</span></th>
+                    <th><span data-translate="leaveManagementSystemApp.employee.granted">Granted</span></th>
+                    <th><span data-translate="leaveManagementSystemApp.employee.otheNote">Othe Note</span></th>
+                   
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in vm.employees track by employee.id">
+                   <!--  <td><a ui-sref="employee-detail({id:employee.id})">{{employee.id}}</a></td> -->
+                    <td>{{employee.empEnrollMentNo}}</td>
+                    <td>{{employee.teachingstaff}}</td>
+                    <td>{{employee.canHaveVacation}}</td>
+                    <td>{{employee.user.firstName}}</td>
+                    <td>{{employee.user.lastName}}</td>
+                     <td>
+                        <a ui-sref="department-detail({id:employee.department.id})">{{employee.department.name}}</a>
+                    </td>
+                    <td>{{employee.user.email}}</td>
+                    <td data-translate="{{'leaveManagementSystemApp.Post.' + employee.post}}">{{employee.post}}</td>
+                    <td>{{employee.fatherHusbandName}}</td>
+                    <td data-translate="{{'leaveManagementSystemApp.GenderEnum.' + employee.gender}}">{{employee.gender}}</td>
+                        <td>{{employee.dob | date:'mediumDate'}}</td>
+                    <td>{{employee.address}}</td>
+                    <td>{{employee.state}}</td>
+                    <td>{{employee.city}}</td>
+                    <td>{{employee.pincode}}</td>
+                    <td data-translate="{{'leaveManagementSystemApp.MaritalStatus.' + employee.maritalStatus}}">{{employee.maritalStatus}}</td>
+                    <td>{{employee.phoneNumber}}</td>
+                    <td>{{employee.mobileNumber}}</td>
+                    <td data-translate="{{'leaveManagementSystemApp.BloodGroup.' + employee.bloodGroup}}">{{employee.bloodGroup}}</td>
+                    <td>{{employee.physicalFit}}</td>
+                        <td>{{employee.joinDate | date:'mediumDate'}}</td>
+                        <td>{{employee.retiredDate | date:'mediumDate'}}</td>
+                    <td>{{employee.qualification}}</td>
+                    <td>{{employee.payband}}</td>
+                    <td>{{employee.granted}}</td>
+                    <td>{{employee.otheNote}}</td>
+                   
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="employee-detail({id:employee.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="employee.edit({id:employee.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="employee.delete({id:employee.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

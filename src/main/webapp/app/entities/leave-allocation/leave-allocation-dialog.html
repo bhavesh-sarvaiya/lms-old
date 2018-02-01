@@ -1,0 +1,63 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myLeaveAllocationLabel" data-translate="leaveManagementSystemApp.leaveAllocation.home.createOrEditLabel">Create or edit a Leave Allocation</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.leaveAllocation.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.leaveAllocation.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="leaveManagementSystemApp.leaveAllocation.teaching" for="field_teaching">Teaching</label>
+                <input type="checkbox" name="teaching" id="field_teaching"
+                          ng-model="vm.leaveAllocation.teaching"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="leaveManagementSystemApp.leaveAllocation.canHaveVacation" for="field_canHaveVacation">Can Have Vacation</label>
+                <input type="checkbox" name="canHaveVacation" id="field_canHaveVacation"
+                          ng-model="vm.leaveAllocation.canHaveVacation"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="leaveManagementSystemApp.leaveAllocation.granted" for="field_granted">Granted</label>
+                <input type="checkbox" name="granted" id="field_granted"
+                          ng-model="vm.leaveAllocation.granted"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="leaveManagementSystemApp.leaveAllocation.noOfLeaves" for="field_noOfLeaves">No Of Leaves</label>
+            <input type="number" class="form-control" name="noOfLeaves" id="field_noOfLeaves"
+                    ng-model="vm.leaveAllocation.noOfLeaves"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="leaveManagementSystemApp.leaveAllocation.allocationDate" for="field_allocationDate">Allocation Date</label>
+                <div class="input-group">
+                    <input id="field_allocationDate" type="text" class="form-control" name="allocationDate" uib-datepicker-popup="{{dateformat}}" ng-model="vm.leaveAllocation.allocationDate" is-open="vm.datePickerOpenStatus.allocationDate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('allocationDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+
+        <div class="form-group">
+            <label data-translate="leaveManagementSystemApp.leaveAllocation.leaveType" for="field_leaveType">Leave Type</label>
+            <select class="form-control" id="field_leaveType" name="leaveType" ng-model="vm.leaveAllocation.leaveType" ng-options="leaveType as leaveType.code for leaveType in vm.leavetypes track by leaveType.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

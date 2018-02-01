@@ -1,0 +1,18 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "noOfLeave",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170601183356",
+    "entityTableName": "leave_balance",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}
